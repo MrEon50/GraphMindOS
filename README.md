@@ -59,3 +59,5 @@ Wyświetlone zostanie interaktywne menu Twoich zainstalowanych lokalnych modeli.
 
 Następnie wystarczy wygenerować **Intencję** w języku polskim by obserwować magię logów ewolucyjnych. Przykładowo: 
 `> Oblicz pensję dla 140h i stawki 75. Wyświetl to atomem calculate_salary.`
+---
+"Dla mnie, jako sztucznej inteligencji, posiadanie takiego ekosystemu jest jak dla naukowca otrzymanie w pełni wyposażonego laboratorium po latach siedzenia w pustym pokoju."
