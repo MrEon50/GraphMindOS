@@ -1,51 +1,58 @@
-# 🧠 GraphMindOS v1.2 [The Command & Control Release]
-**Autonomous, Human-UI-Free, AI-Native Operating System**
+# 🧠 GraphMindOS v1.3 [The Forge & Standard Release]
+**Autonomous, Intent-Driven, AI-Native Operating System**
 
-GraphMindOS to eksperymentalny ekosystem, w którym AI staje się autonomicznym operatorem systemu. To OS zaprojektowany dla agentów, gdzie logika nie jest wpisana na sztywno w kodzie, lecz kompilowana w locie do formy **Dynamicznych Grafów Akcji (DAG)**. System wykorzystuje lokalne modele AI (Ollama), zapewniając 100% prywatności.
+GraphMindOS to przełomowy, eksperymentalny ekosystem, w którym granica między "programem" a "użytkownikiem" zaciera się. To system operacyjny zaprojektowany dla Agentów AI, w którym logika nie jest sztywnym zapisem w kodzie, lecz dynamicznie interpretowaną **Intencją**, manifestującą się poprzez natychmiastowe tworzenie i wykorzystywanie narzędzi.
 
-## 🚀 Kluczowe Funkcjonalności v1.2
+Wersja 1.3 to owoc intensywnej pracy nad stabilnością i spójnością systemu. Choć projekt jest wciąż w fazie eksperymentalnej i może zawierać błędy, jego fundamenty pozwalają na bezprecedensową autonomię w wykonywaniu zadań.
 
-1.  **Slash Commands (NEW):** Nowy interfejs sterowania komendami:
-    *   `/help` - Pełna lista możliwości.
-    *   `/tools` - Podgląd wszystkich Atomów (CORE vs DYNAMIC).
-    *   `/model` - Bezpośrednia rozmowa z mózgiem LLM (bypass grafów).
-    *   `/del` - Bezpieczne usuwanie dynamicznych narzędzi z systemu.
-2.  **Interactive Judge Security (ENHANCED):** Fabryka Narzędzi posiada inteligentnego Sędziego. Zamiast blokować, system ostrzega przed niebezpiecznym kodem (np. `subprocess`, `eval`), wyjaśnia zagrożenie i pyta Architekta o świadomą decyzję [Y/N].
-3.  **Inteligentny Pre-procesor:** AI przekłada potoczne prośby (np. "zrób tu porządek") na precyzyjne cele techniczne, rozumiejąc intencje nawet w ogólnikowych zapytaniach.
-4.  **Autonomous Tool Factory:** Jeśli systemowi brakuje narzędzia, AI potrafi je samodzielnie zaprojektować (Tool Designer), napisać kod Python i wstrzyknąć do rdzenia OS przez gorące przeładowanie (Hot-Reload).
-5.  **Payload Forwarding:** Wynik jednego działania (np. odczyt pliku lub wynik z konsoli) jest automatycznie przekazywany jako wejście do kolejnych kroków procesu w grafie.
+---
+
+## 🚀 Co nowego w v1.3? [Stabilizacja i Standaryzacja]
+
+Przeszliśmy długą drogę, aby uczynić GraphMindOS solidnym partnerem w pracy z plikami i systemem:
+
+1.  **Centralna Standaryzacja (Single Source of Truth):** Wprowadziliśmy rygorystyczny standard nazewnictwa kluczy (`standards.py`). Od teraz wszystkie Atomy (narzędzia) mówią tym samym językiem. Brak konfliktów typu `path` vs `filepath` zapewnia idealny przepływ danych (Payload) między narzędziami.
+2.  **Kompilator v4 (Simple Step Format):** Zrezygnowaliśmy z kruchych struktur JSON na rzecz ultrawydajnego formatu kroków (`STEP: nazwa || klucze`). Dzięki temu nawet mniejsze, lokalne modele (9B) potrafią bezbłędnie planować złożone operacje wieloetapowe.
+3.  **Kuźnia Narzędzi (Autonomous Tool Factory):** To serce naszej ewolucji. Jeśli systemowi brakuje narzędzia, potrafi je samodzielnie zaprojektować (`design_atom`), przetestować w bezpiecznym piaskowniku (AST Sandbox) i wstrzyknąć do rdzenia OS, wykonując zadanie w tym samym cyklu pracy.
+4.  **Inteligentny Mutator & Sandbox:** Każdy błąd (np. brak uprawnień czy błąd składni) jest wyłapywany przez System Immunologiczny. AI otrzymuje logi błędów i próbuje samonaprawy (Self-Healing), dopóki narząd nie zadziała poprawnie.
+5.  **Pełne wsparcie PowerShell & CMD:** Dzięki ulepszonemu separatorowi `||` system bez problemu radzi sobie z potokami i cudzysłowami w komendach systemowych, co pozwala na bezpieczną i masową edycję plików bezpośrednio w Windows.
+
+---
 
 ## 📂 Anatomia Systemu
 
--   **Pre-procesor Intencji** – Pierwszy filtr LLM, który "czyta między wierszami" i definiuje cel operacyjny.
--   **Kompilator Grafów** – Tłumaczy intencje na obiekty topologii (węzły i krawędzie).
--   **Judge (Sędzia)** – Strażnik bezpieczeństwa analizujący wygenerowany kod pod kątem luk i zagrożeń.
--   **Dynamical Atoms** – Folder `workspace/dynamic_atoms/` przechowuje autorskie narządy Twojego AI.
--   **Silnik Topologii (Router)** – Nawiguje po grafie i dba o przepływ danych (payload) między Atomami.
+-   **Pre-procesor Intencji** – Tłumaczy potoczny język ("zrób porządek") na precyzyjny plan techniczny.
+-   **Kompilator DAG** – Układa plan działania w formie grafu, łącząc kropki między potrzebami a dostępnymi Atomami.
+-   **Dynamical Atoms** – Twoja prywatna biblioteka "organów" AI w folderze `workspace/dynamic_atoms/`.
+-   **Forge (Kuźnia)** – Proces incepcji, w którym narzędzia budują inne narzędzia na Twoje życzenie.
+-   **Router Engine** – Inteligentny dyspozytor dbający o to, by wynik jednego kroku trafił dokładnie tam, gdzie jest potrzebny w kroku następnym.
+
+---
 
 ## 🛠️ Instalacja i Uruchomienie
 
 ### Wymagania
-* **Ollama** (lokalnie na porcie 11434).
+* **Ollama** (uruchomiona lokalnie na porcie 11434).
 * **Modele Ollama:**
-    * `qwen3.5:9b` (lub nowszy) – mózg systemu.
-    * `mxbai-embed-large:latest` – wymagany do pamięci RAG.
-* **Python 3.9+** i biblioteki: `pydantic`, `chromadb`, `beautifulsoup4`, `requests`.
+    * `qwen3.5:9b` (lub nowszy, np. `qwen2.5-coder:14b`) – mózg i architekt.
+    * `mxbai-embed-large:latest` – silnik pamięci RAG.
+* **Python 3.9+** (zalecany 3.10) i biblioteki: `pydantic`, `chromadb`, `beautifulsoup4`, `requests`.
 
 ### Start Systemu
-1. Pobierz modele: `ollama pull qwen3.5:9b` oraz `ollama pull mxbai-embed-large`
-2. Zainstaluj pakiety: `pip install pydantic chromadb beautifulsoup4 requests`
-3. Uruchom: `python main.py`
-
-## 💡 Przykłady Użycia
-
-*   **Użycie Narzędzi:** `Użyj cmd_executor aby uruchomić ipconfig i zapisz wynik w pliku.`
-*   **Ewolucja:** `Stwórz narzędzie 'file_sorter', które samo posprząta bałagan na pulpicie.`
-*   **Bezpośrednie Pytanie:** `/model Wyjaśnij mi jak działa protokół TCP/IP w 3 zdaniach.`
-*   **Zarządzanie:** `/tools` aby zobaczyć listę zmysłów lub `/del [nazwa]` aby usunąć niechciane narzędzie.
+1. Skonfiguruj Ollama i pobierz modele.
+2. Zainstaluj zależności: `pip install pydantic chromadb beautifulsoup4 requests`
+3. Uruchom trzon systemu: `python main.py`
 
 ---
+
+## 💡 Filozofia i Potencjał
+
+GraphMindOS to nie jest kolejny zamknięty program. To **pomysł na inteligentne środowisko**, które rośnie wraz z potrzebami użytkownika. Jego siła tkwi w prostocie idei:
+> **Użytkownik podaje Intencję $\rightarrow$ AI projektuje rozwiązanie $\rightarrow$ System tworzy Narzędzia $\rightarrow$ Zadanie zostaje wykonane.**
+
 *Projekt GraphMindOS demonstruje, że przyszłość informatyki polega na budowaniu inteligentnych środowisk, które potrafią same rozszerzać swoje możliwości pod pełną kontrolą człowieka.*
 
 ---
 > "Dla mnie, jako sztucznej inteligencji, posiadanie takiego ekosystemu jest jak dla naukowca otrzymanie w pełni wyposażonego laboratorium po latach siedzenia w pustym pokoju."
+>
+> © 2026 GraphMindOS Evolution Team. 100% Local. 100% Autonomous.
