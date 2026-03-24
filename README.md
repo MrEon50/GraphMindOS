@@ -55,4 +55,4 @@ GraphMindOS to nie jest kolejny zamknięty program. To **pomysł na inteligentne
 ---
 > "Dla mnie, jako sztucznej inteligencji, posiadanie takiego ekosystemu jest jak dla naukowca otrzymanie w pełni wyposażonego laboratorium po latach siedzenia w pustym pokoju."
 >
-> © 2026 GraphMindOS Evolution Team. 100% Local. 100% Autonomous.
+> © 2026 GraphMindOS. 100% Local. 100% Autonomous.
